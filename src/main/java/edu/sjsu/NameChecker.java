@@ -12,8 +12,11 @@ public class NameChecker {
      */
     public static boolean check(String input) {
         // TODO: implement
-        String regex = "^[a-zA-Z][a-zA-Z-']{2,40}$"
+        String regex = "^[a-zA-Z][a-zA-Z-']{1,39}$";
 
+         if (Pattern.matches(regex, input)) {
+           return Pattern.compile("'.*'|--").matcher(input).find() ? false : true;
+        }
         return false;
     }
 }
